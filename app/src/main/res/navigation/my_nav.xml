@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/listFrangmet">
+
+    <fragment
+        android:id="@+id/listFrangmet"
+        android:name="com.gibittec.room2.ui.fragment.list.ListFrangmet"
+        android:label="User List"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFrangmet_to_addFragment"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_listFrangmet_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.gibittec.room2.ui.fragment.add.addFragment"
+        android:label="Add User"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_addFragment_to_listFrangmet"
+            app:destination="@id/listFrangmet" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.gibittec.room2.ui.fragment.update.UpdateFragment"
+        android:label="Update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_listFrangmet"
+            app:destination="@id/listFrangmet" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.gibittec.room2.model.User" />
+    </fragment>
+</navigation>
